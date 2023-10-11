@@ -7,7 +7,7 @@ namespace DevFreela.Infrastructure.Persistance.Repositpries
     public class ProjectRepository : IProjectRepository
     {
         private readonly DevFreelaDbContext _dbContext;
-        
+
         public ProjectRepository(DevFreelaDbContext dbContext)
         {
             _dbContext = dbContext;

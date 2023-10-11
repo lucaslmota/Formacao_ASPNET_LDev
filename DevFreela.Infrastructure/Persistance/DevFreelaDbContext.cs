@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using DevFreela.Core.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +10,21 @@ namespace DevFreela.Infrastructure.Persistance
 {
     public class DevFreelaDbContext : DbContext
     {
-        public DevFreelaDbContext(DbContextOptions<DevFreelaDbContext> options) : base(options) {}
-        public List<Project> Projects { get; set; }
-        public List<User> Users { get; set; }
-        public List<Skill> Skills { get; set; }
-        public List<UserSkill> UserSkills { get; set; }
-        public List<ProjectComment> ProjectComments { get; set; }
+        public DevFreelaDbContext(DbContextOptions<DevFreelaDbContext> options) : base(options)
+        {
+
+        }
+
+
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<UserSkill> UserSkills { get; set; }
+        public DbSet<ProjectComment> ProjectComments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }
