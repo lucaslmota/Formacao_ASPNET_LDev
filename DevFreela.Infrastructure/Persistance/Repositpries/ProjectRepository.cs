@@ -13,7 +13,7 @@ namespace DevFreela.Infrastructure.Persistance.Repositpries
             _dbContext = dbContext;
         }
 
-        public async Task<List<Project>> GetAll()
+        public async Task<List<Project>> GetAllAsync()
         {
             return await _dbContext.Projects.ToListAsync();
         }

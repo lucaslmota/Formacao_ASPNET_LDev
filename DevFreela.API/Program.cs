@@ -1,4 +1,4 @@
-using DevFreela.Application.Commands;
+using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Persistance.Repositpries;
 using MediatR;
