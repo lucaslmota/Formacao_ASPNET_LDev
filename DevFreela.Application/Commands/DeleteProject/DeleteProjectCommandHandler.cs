@@ -14,7 +14,7 @@ namespace DevFreela.Application.Commands.DeleteProject
         {
             var project = await _projectRepository.GetByIdAsync(request.Id);
 
-            //project?.Cancel();
+            project?.Cancel();
 
             await _projectRepository.SaveChangesAsync();
 

@@ -31,7 +31,7 @@ namespace DevFreela.Application.Commands.FinishProject
 
             //_paymentsService.ProcessPayment(paymentInfoDTO);
 
-            //project?.Finish();
+            project?.Finish();
 
             await _projectRepository.SaveChangesAsync();
 
