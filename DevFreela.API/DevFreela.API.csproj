@@ -9,6 +9,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0"/>
     <PackageReference Include="MediatR" Version="11.1.0"/>
+    <PackageReference Include="FluentValidation" Version="11.7.1"/>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevFreela.Core\DevFreela.Core.csproj"/>
