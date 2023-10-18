@@ -29,8 +29,8 @@ namespace DevFreela.Core.Entities
         public User Freelancer { get; private set; }
         public decimal TotalCost { get; private set; }
         public DateTime CreatAt { get; private set; }
-        public DateTime StartedAt { get; private set; }
-        public DateTime FinishedAt { get; private set; }
+        public DateTime? StartedAt { get; private set; }
+        public DateTime? FinishedAt { get; private set; }
         public ProjectStatusEnum Status { get; private set; }
         public ICollection<ProjectComment> Comments { get; private set; }
 

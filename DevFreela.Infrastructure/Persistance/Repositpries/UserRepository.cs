@@ -4,24 +4,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using DevFreela.Core.Entities;
 using DevFreela.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevFreela.Infrastructure.Persistance.Repositpries
 {
     public class UserRepository : IUserRepository
     {
-        public Task AddAsync(User user)
+        private readonly DevFreelaDbContext _dbContext;
+        public UserRepository(DevFreelaDbContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+        }
+        public async Task AddAsync(User user)
+        {
+            await _dbContext.AddAsync(user);
+
+            await _dbContext.SaveChangesAsync();
         }
 
-        public Task<User> GetByIdAsync(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users.SingleOrDefaultAsync(u => u.Id == id);
         }
 
-        public Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
+        public async Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email && u.Password == passwordHash);
         }
     }
 }
