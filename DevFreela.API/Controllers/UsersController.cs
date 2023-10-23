@@ -19,6 +19,7 @@ namespace DevFreela.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var user = new GetUserByIdQuery(id);

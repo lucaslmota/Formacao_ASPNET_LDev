@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using DevFreela.Core.Service;
 using Microsoft.Extensions.Configuration;
@@ -46,7 +47,18 @@ namespace DevFreela.Infrastructure.Auth
         }
         public string ComputeSha256Hash(string password)
         {
-            throw new NotImplementedException();
+            using(SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                StringBuilder builder = new StringBuilder();
+
+                for(int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("2x"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
