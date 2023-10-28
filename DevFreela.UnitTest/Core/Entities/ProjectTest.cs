@@ -1,10 +1,5 @@
 ﻿using DevFreela.Core.Entities;
 using DevFreela.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevFreela.UnitTest.Core.Entities
 {
@@ -28,6 +23,30 @@ namespace DevFreela.UnitTest.Core.Entities
 
             Assert.Equal(ProjectStatusEnum.InProgress, project.Status);
             Assert.NotNull(project.StartedAt);
+        }
+
+        [Fact]
+        public void CancelarProjetoTeste()
+        {
+            var project = new Project("Nome de test", "Descirção de teste", 1, 2, 1000);
+
+            project.Cancel();
+        }
+
+        [Fact]
+        public void EntregarProjetoTeste()
+        {
+            var projec = new Project("Nome de test", "Descirção de teste", 1, 2, 1000);
+
+            projec.Finish();
+        }
+
+        [Fact]
+        public void AtualizarProjetoTeste()
+        {
+            var project = new Project("Nome de test", "Descirção de teste", 1, 2, 1000);
+
+            project.Update(project.Title,project.Description, project.TotalCost);
         }
     }
 }
