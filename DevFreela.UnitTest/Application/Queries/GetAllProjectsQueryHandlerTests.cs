@@ -11,7 +11,7 @@ using Xunit;
 
 namespace DevFreela.UnitTest.Application.Queries
 {
-    public class GetAllProjectsCommandHandlerTests
+    public class GetAllProjectsQueryHandlerTests
     {
         [Fact]
         public async Task ThreeProjectExist_Executed_ReturnThreeProjectViewModels()// Existe três projetos execute e retorne três projectViewModels
